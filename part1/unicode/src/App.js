@@ -17,10 +17,10 @@ const ButtonRow = ({goodIncr, neutralIncr, badIncr}) => {
   )
 }
 
-// Stats component
-const Stats = ({name, value}) => (<p>{name}: {value}</p>);
+// Statistics component
+const Statistics = ({name, value}) => (<p>{name}: {value}</p>);
 
-// Displays Stats for Good / Neutral / Bad
+// Displays Statistics for Good / Neutral / Bad
 const Display = ({goodNum, neutralNum, badNum}) => {
   const total = goodNum+neutralNum+badNum;
   const avgPercent = (goodNum+badNum*(-1))/(total || 1);
@@ -28,12 +28,12 @@ const Display = ({goodNum, neutralNum, badNum}) => {
 
   return (
     <>
-      <Stats name="Good" value={goodNum} />
-      <Stats name="Neutral" value={neutralNum} />
-      <Stats name="Bad" value={badNum} />
-      <Stats name="All" value={total} />
-      <Stats name="Average" value={avgPercent} />
-      <Stats name="Positive" value={posPercent+"%"} />
+      <Statistics name="Good" value={goodNum} />
+      <Statistics name="Neutral" value={neutralNum} />
+      <Statistics name="Bad" value={badNum} />
+      <Statistics name="All" value={total} />
+      <Statistics name="Average" value={avgPercent} />
+      <Statistics name="Positive" value={posPercent+"%"} />
     </>
   );
 };
