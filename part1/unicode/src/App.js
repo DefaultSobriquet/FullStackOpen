@@ -18,10 +18,10 @@ const ButtonRow = ({goodIncr, neutralIncr, badIncr}) => {
 }
 
 // Statistics component
-const Statistics = ({name, value}) => (<p>{name}: {value}</p>);
+const StatisticsLine = ({name, value}) => (<p>{name}: {value}</p>);
 
 // Displays Statistics for Good / Neutral / Bad
-const Display = ({goodNum, neutralNum, badNum}) => {
+const Statistics = ({goodNum, neutralNum, badNum}) => {
   const total = goodNum+neutralNum+badNum;
   const avgPercent = (goodNum+badNum*(-1))/(total || 1);
   const posPercent = ((goodNum)*100)/(total || 1);
@@ -34,12 +34,12 @@ const Display = ({goodNum, neutralNum, badNum}) => {
 
   return (
     <>
-      <Statistics name="Good" value={goodNum} />
-      <Statistics name="Neutral" value={neutralNum} />
-      <Statistics name="Bad" value={badNum} />
-      <Statistics name="All" value={total} />
-      <Statistics name="Average" value={avgPercent} />
-      <Statistics name="Positive" value={posPercent+"%"} />
+      <StatisticsLine name="Good" value={goodNum} />
+      <StatisticsLine name="Neutral" value={neutralNum} />
+      <StatisticsLine name="Bad" value={badNum} />
+      <StatisticsLine name="All" value={total} />
+      <StatisticsLine name="Average" value={avgPercent} />
+      <StatisticsLine name="Positive" value={posPercent+"%"} />
     </>
   );
 };
@@ -59,7 +59,7 @@ const App = () => {
         badIncr={() => setBad(bad+1)}
       />
       <Title text="Statistics" />
-      <Display goodNum={good} neutralNum={neutral} badNum={bad}/>
+      <Statistics goodNum={good} neutralNum={neutral} badNum={bad}/>
     </div>
   )
 }
