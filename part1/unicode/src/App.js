@@ -26,6 +26,12 @@ const Display = ({goodNum, neutralNum, badNum}) => {
   const avgPercent = (goodNum+badNum*(-1))/(total || 1);
   const posPercent = ((goodNum)*100)/(total || 1);
 
+  if(total === 0){
+    return (
+      <p>No statistics given.</p>
+    )
+  }
+
   return (
     <>
       <Statistics name="Good" value={goodNum} />
