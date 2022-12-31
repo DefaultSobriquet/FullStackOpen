@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-const nextAnec = (index, setIndex, anecLen) => setIndex((index+1)%anecLen);
+const nextAnec = (index, setIndex, anecLen) => {
+
+  const newIndex = index+Math.floor(Math.random()*(anecLen-1))+1;
+
+  setIndex((newIndex)%anecLen);
+}
 
 const voteAnec = (votes, setVote, currIndex) => {
   const votesCopy = votes.slice(0);
